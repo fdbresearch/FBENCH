@@ -1,8 +1,8 @@
 # FBench
 
-This repository contains an implementation of factorised databases focused on computing the size of a join result and the resulting compression factor, based on the TODS 2015 paper [Size Bounds for Factorised Representations of Query Results](http://www.cs.ox.ac.uk/dan.olteanu/papers/oz-tods15.pdf).
+This repository contains an implementation of factorised databases focused on computing the size of a join result and the resulting compression factor.
 
-The aim of factorised databases is to reduce the redundancy appearing in query results of conjunctive queries. By distributing the products over unions it is often possible to avoid enumerating Cartesian products that appear in a join result. This is achieved using analysis of the query given an order of the variables used (d-tree). The result is a linear representation of an otherwise quadratic result. This representation is amenable for further computation and can be used o achieve significant performance improvements when training certain machine learning models directly on the database.
+The aim of factorised databases is to reduce the redundancy appearing in query results of conjunctive queries. By distributing the products over unions it is often possible to avoid enumerating Cartesian products that appear in a join result. This is achieved using analysis of the query given an order of the variables used (d-tree). This representation is amenable for further computation and can be used o achieve significant performance improvements when training certain machine learning models directly on the database. See the TODS 2015 paper [Size Bounds for Factorised Representations of Query Results](http://www.cs.ox.ac.uk/dan.olteanu/papers/oz-tods15.pdf) for more details on this method.
 
 The implementation in this repository focuses on computing the size of a factorised representation given a database and a query/variable order. It returns a compression factor computed as  `C = (A*T)/V` where
 
