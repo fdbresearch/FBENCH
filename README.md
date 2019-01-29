@@ -71,15 +71,15 @@ $ fbench --path ../example
 
 The variable order (*d-tree*) is given in the file "dtree.txt". It has the following format:
 
-1 The first line contains two numbers: number_of_variables and number_of_relations, separated by space.
-1 Then list each variable in the dtree using the following format:
+1. The first line contains two numbers: number_of_variables and number_of_relations, separated by space.
+1. Then list each variable in the dtree using the following format:
   id name type parent dtree-key caching-boolean
   * The id is used to identify this attribute later on, and should be ordered from 0 to number_of_variables-1.
   * name is the name of the variable as specified in schema.conf and below.
   * dtree-key is of the format "{list_of_ids}", where the list of id's is a comma-separated list of node-id's of the tree.
   * The parent of the root set to -1, otherwise the id of the parent node.
   * The caching-boolean indicates if we can cache at this node in the dtree.
-1 List each [relation_name], with the id of the variable in this relation that is the lowest node in the dtree, and
+1. List each [relation_name], with the id of the variable in this relation that is the lowest node in the dtree, and
   the list of variables in this relation (comma-separated, no whitespace).
 
 ### Relational Schema
