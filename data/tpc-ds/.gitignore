@@ -1,8 +1,0 @@
-.DS_Store
-~*
-
-data/*.png
-data/*.txt
-data/*.conf
-
-data/*.tbl
