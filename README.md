@@ -44,7 +44,7 @@ $ cmake ..
 $ make
 ```
 
-## Running FDB
+## Running FBench
 
 The simplest way to run FBench is to type the following command:
 ```
@@ -67,7 +67,7 @@ The following three sections briefly describe the input format and configuration
 $ fbench --path ../example
 ```
 
-### D-Tree configuration
+### D-Tree Configuration
 
 The variable order (*d-tree*) is given in the file "dtree.txt". It has the following format:
 
@@ -92,7 +92,7 @@ The query is implied by the schema given: a natural join is computed over all re
 
 The list of variables is a comma-separated list, without any whitespace. It is possible to list a relation multiple times with different variable names to implement joins on different attributes, or cyclic queries.
 
-### Data input format
+### Data Files
 
 The data is expected by FBench to be in text-files of the following format:
 ```
