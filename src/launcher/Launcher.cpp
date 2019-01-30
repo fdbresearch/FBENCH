@@ -58,7 +58,7 @@ Launcher::~Launcher()
 }
 
 int Launcher::launch(unsigned int numOfThreads, unsigned int numOfPartitions,
-                     string model)
+                     string model, const char delimiter)
 {
 #ifdef BENCH
     int64_t start = duration_cast<milliseconds>(
@@ -113,7 +113,7 @@ int Launcher::launch(unsigned int numOfThreads, unsigned int numOfPartitions,
         system_clock::now().time_since_epoch()).count();
 #endif
 
-    _dataHandler.reset(new DataHandlerCSV(_pathToFiles));
+    _dataHandler.reset(new DataHandlerCSV(_pathToFiles, delimiter));
 
     _dataHandler->loadAllTables();
     

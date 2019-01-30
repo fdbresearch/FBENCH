@@ -105,8 +105,8 @@ void CountAggregate::run()
 
     BINFO("TIME - Count calculation: " + to_string(endF) + "ms.\n");
     
-    std::cout << std::fixed << "DATA - Number of Tuples in join result: " <<
-        _fadeAggregates.aggregates[0] << std::endl;
+    std::cout << "DATA - Number of Tuples in join result: " <<
+        (size_t) _fadeAggregates.aggregates[0] << std::endl;
 }
 
 void CountAggregate::createAggregateRegister()

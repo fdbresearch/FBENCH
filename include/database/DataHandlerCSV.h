@@ -24,7 +24,7 @@ public:
 	/**
 	 * Constructor; need to provide path to database files.
 	 */
-	DataHandlerCSV(const std::string& pathToFiles);
+	DataHandlerCSV(const std::string& pathToFiles, const char delimiter);
 
 	~DataHandlerCSV();
 

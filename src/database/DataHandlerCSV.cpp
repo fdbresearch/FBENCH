@@ -36,8 +36,8 @@ using namespace dfdb::params;
 using namespace dfdb::types;
 using namespace std;
 
-DataHandlerCSV::DataHandlerCSV(const string& pathToFiles) :
-		DataHandler(pathToFiles)
+DataHandlerCSV::DataHandlerCSV(const string& pathToFiles, const char delimiter) :
+		DataHandler(pathToFiles, delimiter)
 {
 	/* Load the database schema file into an input stream. */
 	ifstream input(_pathToFiles + SCHEMA_CONF);
@@ -204,15 +204,14 @@ void DataHandlerCSV::loadAllTables()
 
 			column = -1;
 
-			/* Parse each double one by one; skip VALUE_SEPARATOR_CHAR. */
+			/* Parse each double one by one; skip _delimiter. */
 			parsingSuccess = qi::phrase_parse(line.begin(), line.end(),
 
 					/*  Begin Boost Spirit grammar. */
 					(repeat(_attrIDs[table].size())[qi::double_[phoenix::ref(
 							tuple)[++phoenix::ref(column)] = qi::_1]]),
 					/*  End grammar. */
-
-					VALUE_SEPARATOR_CHAR);
+					_delimiter);
 
 			assert(parsingSuccess && "The parsing of a tuple has failed.");
 

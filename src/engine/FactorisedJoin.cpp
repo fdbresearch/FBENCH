@@ -212,8 +212,7 @@ void FactorisedJoin::run()
 
     delete[] _partitionFields;
 
-
-    std::cout << "Total Number of Values: " << numberOfValues << endl; 
+    // std::cout << "DATA - Number of Values: " << numberOfValues << endl; 
 }
 
 Union* FactorisedJoin::runAggregator(

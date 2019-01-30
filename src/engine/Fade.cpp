@@ -374,7 +374,7 @@ void Fade::run(
         }
     }
 
-    std::cout << "DATA - Number of values: " << _numberOfValues << "\n";
+    std::cout << "DATA - Number of values in Factorised Representation: " << _numberOfValues << "\n";
     std::cout << "DATA - Number of values in Listing Representation: " <<
         long(finalAggregates.aggregates[0] * NUM_OF_ATTRIBUTES) << std::endl;
     std::cout << std::fixed << "DATA - Compression Factor: "

@@ -92,14 +92,17 @@ protected:
 	/**
 	 * Superclass constructor; used to set _pathToFiles variable.
 	 */
-	DataHandler(const std::string& pathToFiles) :
-			_pathToFiles(pathToFiles)
+	DataHandler(const std::string& pathToFiles, const char delimiter) :
+			_pathToFiles(pathToFiles), _delimiter(delimiter)
 	{
 	}
 
 	//! Physical path to the schema and table files.
 	std::string _pathToFiles;
 
+	//! Physical path to the schema and table files.
+	char _delimiter;
+	
 	//! Array of vectors containing the attribute IDs of the different database tables.
 	std::vector<uint_fast16_t>* _attrIDs;
 

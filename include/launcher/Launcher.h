@@ -36,7 +36,7 @@ public:
      * Launches the database operations.
      */
     int launch(unsigned int numOfThreads, unsigned int numOfPartitions,
-               std::string model);
+               std::string model, const char delimiter);
 
     /**
      * Returns a pointer to the DataHandler module.

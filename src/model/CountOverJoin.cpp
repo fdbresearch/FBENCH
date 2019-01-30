@@ -80,20 +80,19 @@ void CountOverJoin::run()
     memset(cachedCounts, 0, numberOfCachedValues * sizeof(unsigned int));
     valueCount(rootNode, _dTree->_root);
 
-    std::cout << "Number of cached values: "+std::to_string(numberOfCachedValues)+"\n";
-    std::cout << "There are "+ std::to_string(tupleCount) +" tuples in the database.\n";
+    // std::cout << "Number of cached values: "+std::to_string(numberOfCachedValues)+"\n";
+    std::cout << "DATA - Number of values in Factorised Representation: "+ std::to_string(numberOfValues) +".\n";
 
     size_t flatValueCount = ((size_t)tupleCount) * dfdb::params::NUM_OF_ATTRIBUTES;
+    std::cout << "DATA - Number of values in Listing Representation: "+std::to_string(flatValueCount)+".\n"; 
 
-    std::cout << "There are "+ std::to_string(flatValueCount) +
-    " values in the join result.\n"; 
+    std::cout << "DATA - Compression Factor: "+ std::to_string((double)flatValueCount / numberOfValues)+".\n";
 
-    std::cout << "There are "+ std::to_string(numberOfValues) +
-    " values in the factorised join result.\n";
+    assert(tupleCount == rootNode -> count);
 
-    std::cout << "Count at root: "+ std::to_string(rootNode -> count) +"\n"; 
-
-    exit(0);
+    std::cout << "DATA - Number of Tuples in join result: " <<
+        (size_t) tupleCount << std::endl;
+    // exit(0);
 };
 
 

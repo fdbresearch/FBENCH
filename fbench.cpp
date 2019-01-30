@@ -35,12 +35,15 @@ int main(int argc, char *argv[])
          boost::program_options::value<std::string>()->default_value("count"),
          "operation to be computed: count (default) or countJoin.")
 	/* Option for number of threads used for F cofactor calculation; default
-         * set to number of hardware thread contexts. */
-        ("threads", boost::program_options::value<unsigned int>()->default_value(1),
-         "set number of threads for cofactor calculation; select 1 for single-threading; do not set for automatic multi-threading.")
+    * set to number of hardware thread contexts. */
+    ("threads", boost::program_options::value<unsigned int>()->default_value(1),
+         "set number of threads for count calculation; default is 1 for single-threading.")
 	/* Option for number of partitions used for F cofactor calculation. */
-	("partitions", boost::program_options::value<unsigned int>(),
-         "set number of partitions for cofactor calculation; default is one partition per thread.");
+	// ("partitions", boost::program_options::value<unsigned int>(),
+    //   "set number of partitions for cofactor calculation; default is one partition per thread.")
+    /* Option for number of partitions used for F cofactor calculation. */
+    ("delim", boost::program_options::value<char>()->default_value('|'),
+         "Set the delimiter for the input tables; default is '|'.");
 
     /* Register previous options and do command line parsing. */
     boost::program_options::variables_map vm;
@@ -86,8 +89,9 @@ int main(int argc, char *argv[])
         return EXIT_FAILURE;
     }
 
-    int numOfPartitions;
+    int numOfPartitions = vm["threads"].as<unsigned int>();
     /* Retrieve number of partitions; either given by option or default of one partition per thread. */
+    /*    
     if (vm.count("partitions"))
     {
         numOfPartitions = vm["partitions"].as<unsigned int>();
@@ -96,6 +100,7 @@ int main(int argc, char *argv[])
     {
         numOfPartitions = vm["threads"].as<unsigned int>();
     }
+    */
 
     std::shared_ptr<Launcher> launcher(new Launcher(pathString));
 
@@ -107,7 +112,8 @@ int main(int argc, char *argv[])
     /* Launch program. */
     int result = launcher->launch(vm["threads"].as<unsigned int>(),
                                   numOfPartitions,
-                                  vm["model"].as<std::string>());
+                                  vm["model"].as<std::string>(),
+                                  vm["delim"].as<char>());
     
 #ifdef BENCH
     int64_t end = std::chrono::duration_cast<std::chrono::milliseconds>(
