@@ -12,30 +12,27 @@
 # 3) List each relation_name, with the id of the variable in this relation that is the lowest node in the dtree, and 
 #	 the list of variables in this relation. 
 #####
-21 5
-0 tID int -1 {} 0
-1 ordr int 0 {0} 0
-2 isOrig int 1 {0,1} 0
-3 rgn int 2 {0,1,2} 0
-4 lang int 3 {0,1,2,3} 0
-5 title int 4 {0,1,2,3,4} 0
-6 nID int 1 {0,1} 0
-7 category int 6 {0,1,6} 0
-8 job int 7 {0,1,6,7} 0
-9 characters int 8 {0,1,6,7,8} 0
-10 bYear int 6 {6} 1
-11 dYear int 10 {6,10} 0
-12 primName int 11 {6,10,11} 0
-13 prof int 6 {6} 1
-14 type int 0 {0} 0
-15 adult int 14 {0,14} 0
-16 sYear int 15 {0,14,15} 0
-17 eYear int 16 {0,14,15,16} 0
-18 runtime int 17 {0,14,15,16,17} 0
-19 primTitle int 18 {0,14,15,16,17,18} 0
-20 origTitle int 19 {0,14,15,16,17,18,19} 0
-title.akas 5 tID,ordr,title,rgn,lang,isOrig
-title.principals 9 tID,ordr,nID,category,job,characters
-name.basics 12 nID,primName,bYear,dYear
-name.basics_profession 13 nID,prof
-title.basics 20 tID,type,primTitle,origTitle,adult,sYear,eYear,runtime
+18 5
+0 nID int -1 {} 0
+1 bYear int 0 {0} 0
+2 dYear int 1 {0,1} 0
+3 primName int 2 {0,1,2} 0
+4 prof int 0 {0} 0
+5 tID int 0 {0} 0
+6 type int 5 {5} 1
+7 adult int 6 {5,6} 0
+8 sYear int 7 {5,6,7} 0
+9 eYear int 8 {5,6,7,8} 0
+10 runtime int 9 {5,6,7,8,9} 0
+11 primTitle int 10 {5,6,7,8,9,10} 0
+12 origTitle int 11 {5,6,7,8,9,10,11} 0
+13 ordr int 5 {5} 1
+14 isOrig int 13 {5, 13} 0
+15 rgn int 14 {5,13,14} 0
+16 lang int 15 {5,13,14,15} 0
+17 title int 16 {5,13,14,15,16} 0
+name.basics 3 nID,primName,bYear,dYear
+name.basics_profession 4 nID,prof
+name.basics_knownfor 5 nID,tID
+title.basics 12 tID,type,primTitle,origTitle,adult,sYear,eYear,runtime
+title.akas 17 tID,ordr,title,rgn,lang,isOrig

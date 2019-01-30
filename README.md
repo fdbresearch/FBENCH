@@ -77,7 +77,7 @@ The variable order (*d-tree*) is given in the file "dtree.txt". It has the follo
    id name type parent dtree-key caching-boolean
    * The id is used to identify this attribute later on, and should be ordered from 0 to number_of_variables-1.
    * name is the name of the variable as specified in schema.conf and below.
-   * The type is one of int or numeric.
+   * The type is one of int or double.
    * dtree-key is of the format "{list_of_ids}", where the list of id's is a comma-separated list of node-id's of the tree.
    * The parent of the root set to -1, otherwise the id of the parent node.
    * The caching-boolean indicates if we can cache at this node in the dtree.
