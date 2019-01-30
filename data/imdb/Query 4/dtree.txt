@@ -1,0 +1,37 @@
+#####
+# This file defines a dtree (or variable order) of the query. 
+# 
+# 1) First line, gives number_of_variables and number_of_relations. 
+# 2) The we list each variable in the dtree using the following order:  
+# 	id name type parent dtree-key caching-boolean
+#
+# 	- The id is used to identify this attribute later on, and should be ordered from 0 to number_of_variables-1.
+# 	- The parent of the root set to -1.
+# 	- The caching-boolean indicates if we can cache at this node in the dtree. 
+#
+# 3) List each relation_name, with the id of the variable in this relation that is the lowest node in the dtree, and 
+#	 the list of variables in this relation. 
+#####
+18 4
+0 nID int -1 {} 0
+1 tID int 0 {0} 0
+2 ordr int 1 {0,1} 0
+3 category int 2 {0,1,2} 0
+4 job int 3 {0,1,2,3} 0
+5 characters int 4 {0,1,2,3,4} 0
+6 bYear int 0 {0} 0
+7 dYear int 6 {0,6} 0
+8 primName int 7 {0,6,7} 0
+9 rating double 1 {1} 1
+10 numVotes int 9 {1,9} 0
+11 type int 1 {1} 1
+12 adult int 11 {1,11} 0
+13 sYear int 12 {1,11,12} 0
+14 eYear int 13 {1,11,12,13} 0
+15 runtime int 14 {1,11,12,13,14} 0
+16 primTitle int 15 {1,11,12,13,14,15} 0
+17 origTitle int 16 {1,11,12,13,14,15,16} 0
+title.basics 17 tID,type,primTitle,origTitle,adult,sYear,eYear,runtime
+title.principals 5 tID,ordr,nID,category,job,characters
+name.basics 8 nID,primName,bYear,dYear
+title.ratings 10 tID,rating,numVotes
