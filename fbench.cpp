@@ -120,7 +120,7 @@ int main(int argc, char *argv[])
         std::chrono::system_clock::now().time_since_epoch()).count() - start;    
 #endif
 
-    BINFO("MAIN - overall time: " + std::to_string(end) + "ms.\n");
+    BINFO("TIME - overall time: " + std::to_string(end) + "ms.\n");
 
     /* Make sure the output buffer is flushed (no need to flush cerr as it
      * is unbuffered). */

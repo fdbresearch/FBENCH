@@ -48,7 +48,7 @@ FactorisedJoin::FactorisedJoin(shared_ptr<Launcher> launcher, unsigned int numOf
     sortDataToProcess();
 
     BINFO(
-        "WORKER - data sorting: " +
+        "TIME - data sorting: " +
         to_string(duration_cast<milliseconds>(
                       system_clock::now().time_since_epoch()).count() - startSorting) +
         "ms.\n");
