@@ -13,7 +13,7 @@ endif()
 set(CMAKE_CXX_FLAGS_BENCHMARK "${CMAKE_CXX_FLAGS_RELEASE} -DBENCH")
 
 # Set to Debug, Benchmark or Release.
-set(CMAKE_BUILD_TYPE Release)
+set(CMAKE_BUILD_TYPE Benchmark)
 
 #include_directories(include/database include/dTree include/engine include/model include/result include/launcher include/utils libs/murmurhash3 /usr/local/include)
 include_directories(include/database include/dTree include/engine include/model include/launcher include/utils /usr/local/include)
