@@ -1,0 +1,38 @@
+#####
+# This file defines a dtree (or variable order) of the query. 
+# 
+# 1) First line, gives number_of_variables and number_of_relations. 
+# 2) The we list each variable in the dtree using the following order:  
+# 	id name type parent dtree-key caching-boolean
+#
+# 	- The id is used to identify this attribute later on, and should be ordered from 0 to number_of_variables-1.
+# 	- The parent of the root set to -1.
+# 	- The caching-boolean indicates if we can cache at this node in the dtree. 
+#
+# 3) List each relation_name, with the id of the variable in this relation that is the lowest node in the dtree, and 
+#	 the list of variables in this relation. 
+#####
+18 5
+0 nID int -1 {} 0
+1 bYear int 0 {0} 0
+2 dYear int 1 {0,1} 0
+3 primName int 2 {0,1,2} 0
+4 prof int 0 {0} 0
+5 tID int 0 {0} 0
+6 type int 5 {5} 1
+7 adult int 6 {5,6} 0
+8 sYear int 7 {5,6,7} 0
+9 eYear int 8 {5,6,7,8} 0
+10 runtime int 9 {5,6,7,8,9} 0
+11 primTitle int 10 {5,6,7,8,9,10} 0
+12 origTitle int 11 {5,6,7,8,9,10,11} 0
+13 ordr int 5 {5} 1
+14 isOrig int 13 {5, 13} 0
+15 rgn int 14 {5,13,14} 0
+16 lang int 15 {5,13,14,15} 0
+17 title int 16 {5,13,14,15,16} 0
+name.basics 3 nID,primName,bYear,dYear
+name.basics_profession 4 nID,prof
+name.basics_knownfor 5 nID,tID
+title.basics 12 tID,type,primTitle,origTitle,adult,sYear,eYear,runtime
+title.akas 17 tID,ordr,title,rgn,lang,isOrig

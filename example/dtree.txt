@@ -1,0 +1,25 @@
+#####
+# This file defines a dtree (or variable order) of the query. 
+# 
+# 1) First line, gives number_of_variables and number_of_relations. 
+# 2) The we list each variable in the dtree using the following order:  
+# 	id name type parent dtree-key caching-boolean
+#
+# 	- The id is used to identify this attribute later on, and should be ordered from 0 to number_of_variables-1.
+# 	- The parent of the root set to -1.
+# 	- The caching-boolean indicates if we can cache at this node in the dtree. 
+#
+# 3) List each relation_name, with the id of the variable in this relation that is the lowest node in the dtree, and 
+#	 the list of variables in this relation. 
+#####
+6 4
+0 A int -1 {} 0
+1 B int 0 {0} 0
+2 C int 1 {0,1} 0
+3 D int 1 {0,1} 0
+4 E int 0 {0} 0
+5 F int 4 {4} 1
+R 2 A,B,C
+S 3 A,B,D
+T 4 A,E
+U 5 E,F
