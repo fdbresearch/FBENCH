@@ -1,0 +1,63 @@
+# Compiled Object files
+*.slo
+*.lo
+*.o
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+
+# bin directory
+bin
+bin/*
+
+# Cmake files
+CMakeCache.txt
+CMakeFiles/
+*.cmake
+Makefile
+build/
+
+# ignore vim swap files
+*.swp
+.*.swp
+
+# data directory
+data
+data/*
+
+# Eclipse files
+.cproject
+.project
+.settings/*
+
+# Doxygen generated files
+html
+html/*
+
+# Perf files
+perf.*
+
+# Other
+dfdb
+core.*
+.DS_Store
+
+xcode/*
+*dfdb.build*
+src/compileEngine/RegisterFromFile.cpp
+
+*.conf
+
+vcluster/*
+testZipping/*
+
+CopyToFastrat.sh
+include/result/ResultHandlerRegressionWithSeveralOptimisationProcedures.h
+run*.sh
+removeOutput.sh
