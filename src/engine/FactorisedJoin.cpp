@@ -14,6 +14,7 @@
 #include <FactorisedJoin.h>
 #include <Logging.hpp>
 #include <Launcher.h>
+#include <assert.h>
 
 using namespace dfdb::params;
 using namespace dfdb::types;

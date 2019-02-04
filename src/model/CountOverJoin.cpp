@@ -9,12 +9,13 @@
 //===----------------------------------------------------------------------===//
 
 #include <cstdlib>
-#include <string>
+#include <cstring>
 #include <vector>
 
 #include <GlobalParams.hpp>
 #include <Launcher.h>
 #include <Logging.hpp>
+#include <assert.h>
 
 #include <CountOverJoin.h>
 
