@@ -57,7 +57,7 @@ The raw data includes a numerous amount of NULL-entries, which are converted to 
 
 ## Queries
 
-The folder "fdbQueryConfigs" contains four queries. Copying the dtree.txt and schema.conf out of fdbQueryConfigs into the directory also containing the data tables makes it possible to run the respective query using FDB. All the joins are Primary key/Foreign key joins, but some are many-to-many. 
+The folder contains four queries, each in their own folder. Copying the dtree.txt and schema.conf out of the respective queries folder into the directory also containing the data tables makes it possible to run the query using FBENCH. All the joins are primary key/foreign key joins, but some are many-to-many. 
 
 The Queries are as follows:
 
