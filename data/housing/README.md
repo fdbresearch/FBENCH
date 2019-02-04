@@ -99,7 +99,7 @@ Demographics
 The query used is the natural join over all the relations (joining on postcode). By design of the data, at scaling factor `s`, the size of the listing representation is ca. `200k * s^3 * (log_2(s+1))^3`tuples. The factorised size on the other hand is ca. `75k * (s + 3 * log_2 (s+1))`. We generated the data for scale factors 1 to 20, leading to the following results:
 
 Scale Factor | Tuples | Values in the listing representation | Values in the factorised representation| Compression Factor
--------------|--------|--------------------------------------|----------------------------------------|-------------------
+-------------|-------:|-------------------------------------:|---------------------------------------:|------------------:
 1  | 25,000      | 675,000        | 675,000   | 1.00
 2  | 100,000     | 2,700,000      | 1,004,885 | 2.69
 3  | 899,586     | 24,288,822     | 1,396,360 | 17.39
