@@ -42,12 +42,11 @@ SELECT * FROM train NATURAL JOIN item NATURAL JOIN oil NATURAL JOIN
 stores NATURAL JOIN transactions NATURAL JOIN holiday;
 ```
 
--------------------------------------------|-------------
-Number of Tuples in join result:           | 127,872,512
-Number of values in factorized join result | 376,680,850
-Number of values in listing representation | 2,301,705,216
-Compression Factor                         | 6.11
-Degree (# of columns)                      | 18
+* Number of Tuples in join result: 127,872,512
+* Number of values in factorized join result: 376,680,850
+* Number of values in listing representation: 2,301,705,216
+* Compression Factor: 6.11
+* Degree (# of columns): 18
 
 ### Natural Join of Train, Transaction, Item, Stores
 
@@ -57,9 +56,8 @@ This is the following Query in SQL:
 SELECT * FROM train NATURAL JOIN item NATURAL JOIN stores NATURAL JOIN transactions;
 ```
 
--------------------------------------------|-------------
-Number of Tuples in join result:           | 125497040
-Number of values in factorized join result | 376672340
-Number of values in listing representation | 1631461520
-Compression Factor                         | 4.33
-Degree (# of columns)                      | 13
+* Number of Tuples in join result: 125497040
+* Number of values in factorized join result: 376672340
+* Number of values in listing representation: 1631461520
+* Compression Factor: 4.33
+* Degree (# of columns): 13
