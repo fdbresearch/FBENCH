@@ -27,10 +27,6 @@ build/
 *.swp
 .*.swp
 
-# data directory
-data
-data/*
-
 # Eclipse files
 .cproject
 .project
