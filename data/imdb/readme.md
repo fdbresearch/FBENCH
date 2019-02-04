@@ -68,22 +68,17 @@ The Queries are as follows:
   ```SQL
   SELECT * FROM takas NATURAL JOIN tbasics NATURAL JOIN tgenre NATURAL JOIN directors NATURAL JOIN name NATURAL JOIN profession;
   ```
-* Query 2: Joins titles with their AKA's and their principal cast members (including the basic information) and the profession of every cast member.
-  In SQL: 
-  ```SQL
-  SELECT * FROM takas NATURAL JOIN tprincipals NATURAL JOIN name NATURAL JOIN profession NATURAL JOIN tbasics;
-  ```
-* Query 3: Joins the basic information for every person in the database with their professions and the titles (including AKA's) they are known for.
+* Query 2: Joins the basic information for every person in the database with their professions and the titles (including AKA's) they are known for.
   In SQL:
   ```SQL
   SELECT * FROM takas NATURAL JOIN tprincipals NATURAL JOIN name NATURAL JOIN profession NATURAL JOIN tbasics;
   ```
-* Query 4: Join the titles with their principal cast (including basic information) and their rating.
+* Query 3: Join the titles with their principal cast (including basic information) and their rating.
   In SQL:
   ```SQL
   SELECT * FROM tbasics NATURAL JOIN tprincipals NATURAL JOIN name NATURAL JOIN tratings;
   ```
-* Query 5: For every title get the principal cast and for every cast member which other titles they are known for.
+* Query 4: For every title get the principal cast and for every cast member which other titles they are known for.
   In SQL:
   ```SQL
   SELECT * FROM tbasics t1, tprincipals p, name n, knownfor k, tbasics t2
@@ -96,9 +91,8 @@ Statistics on the queries:
 
 Query | #tuples in join | #values (singletons) | Compression Factor
 ------|-----------------|----------------------|-------------------
-1 | 38161177  | 22372840  | 11.14
-2 | 48121241  | 6299553   | 2.75
-3 | 70584013  | 132069502 | 33.68
-4 | 47664792  | 6978828   | 2.64
-5 | 244895933 | 101099366 | 9.91
+[1](./Query\ 1) | 38161177  | 22372840  | 11.14
+[2](./Query\ 2) | 70584013  | 132069502 | 33.68
+[3](./Query\ 3) | 47664792  | 6978828   | 2.64
+[4](./Query\ 4) | 244895933 | 101099366 | 9.91
 
