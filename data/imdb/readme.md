@@ -63,27 +63,35 @@ The folder "fdbQueryConfigs" contains five queries, which can also be found as S
 
 The Queries are as follows:
 
-* Query 1: Joins titles with their AKA's (also known as, i.e., foreign language versions). For every title we then retrieve the genre, the director (including the basic information) and the directors profession.
-  In SQL: 
-  ```SQL
-  SELECT * FROM takas NATURAL JOIN tbasics NATURAL JOIN tgenre NATURAL JOIN directors NATURAL JOIN name NATURAL JOIN profession;
-  ```
-* Query 2: Joins the basic information for every person in the database with their professions and the titles (including AKA's) they are known for.
-  In SQL:
-  ```SQL
-  SELECT * FROM takas NATURAL JOIN tprincipals NATURAL JOIN name NATURAL JOIN profession NATURAL JOIN tbasics;
-  ```
-* Query 3: Join the titles with their principal cast (including basic information) and their rating.
-  In SQL:
-  ```SQL
-  SELECT * FROM tbasics NATURAL JOIN tprincipals NATURAL JOIN name NATURAL JOIN tratings;
-  ```
-* Query 4: For every title get the principal cast and for every cast member which other titles they are known for.
-  In SQL:
-  ```SQL
-  SELECT * FROM tbasics t1, tprincipals p, name n, knownfor k, tbasics t2
-    WHERE t1.tID = p.tID and p.nID = n.nID and k.nID = n.nID and k.tID = t2.tID;
-  ```
+### Query 1
+Joins titles with their AKA's (also known as, i.e., foreign language versions). For every title we then retrieve the genre, the director (including the basic information) and the directors profession.
+
+In SQL: 
+```SQL
+SELECT * FROM takas NATURAL JOIN tbasics NATURAL JOIN tgenre NATURAL JOIN directors NATURAL JOIN name NATURAL JOIN profession;
+```
+### Query 2
+Joins the basic information for every person in the database with their professions and the titles (including AKA's) they are known for.
+
+In SQL:
+```SQL
+SELECT * FROM takas NATURAL JOIN tprincipals NATURAL JOIN name NATURAL JOIN profession NATURAL JOIN tbasics;
+```
+### Query 3
+Join the titles with their principal cast (including basic information) and their rating.
+
+In SQL:
+```SQL
+SELECT * FROM tbasics NATURAL JOIN tprincipals NATURAL JOIN name NATURAL JOIN tratings;
+```
+### Query 4
+For every title get the principal cast and for every cast member which other titles they are known for.
+
+In SQL:
+```SQL
+SELECT * FROM tbasics t1, tprincipals p, name n, knownfor k, tbasics t2
+  WHERE t1.tID = p.tID and p.nID = n.nID and k.nID = n.nID and k.tID = t2.tID;
+```
 
 Of these queries, the first three were intended to achieve particularly high compression factors, by blowing the result up with lots of redundant information (hence the inclusion of title.akas). Queries 4 and 5 are more natural. Query 4 could be of interest if one wants to find a correlation between cast members and a films rating. Query 5 is something one might expect on an information page (though likely with an additional selection of specific titles in the first join).
 
@@ -91,8 +99,8 @@ Statistics on the queries:
 
 Query | #tuples in join | #values (singletons) | Compression Factor
 ------|-----------------|----------------------|-------------------
-[1](./Query\ 1) | 38161177  | 22372840  | 11.14
-[2](./Query\ 2) | 70584013  | 132069502 | 33.68
-[3](./Query\ 3) | 47664792  | 6978828   | 2.64
-[4](./Query\ 4) | 244895933 | 101099366 | 9.91
+[1](#Query 1) | 38161177  | 22372840  | 11.14
+[2](#Query 2) | 70584013  | 132069502 | 33.68
+[3](#Query 3) | 47664792  | 6978828   | 2.64
+[4](#Query 4) | 244895933 | 101099366 | 9.91
 
