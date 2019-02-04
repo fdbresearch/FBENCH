@@ -1,6 +1,6 @@
 # IMDB dataset
 
-Database with information about movies and people involved in their production. Original data along with licensing information can be found [on the IMDB website](https://www.imdb.com/interfaces/). The website also includes a description of the dataset. The folder includes a shell-script "get_data.sh" which downloads the data from the IMDB website and runs the conversion script described below.
+Database with information about movies and people involved in their production. Original data along with licensing information can be found [on the IMDB website](https://www.imdb.com/interfaces/). The website also includes a description of the dataset. The folder includes a python script "prepare.py", which converts the data from the IMDB website into a normalised form that can be used with FBENCH (see section [Relations](#Relations) below). 
 
 ## Data Overview
 
@@ -57,9 +57,7 @@ The raw data includes a numerous amount of NULL-entries, which are converted to 
 
 ## Queries
 
-To more easily experiment with different queries over the data, the script "load_data.sql" can be used to load the (converted) tables into a PostgreSQL database.
-
-The folder "fdbQueryConfigs" contains five queries, which can also be found as SQL-statements in "load_data.sql". Copying the dtree.txt, schema.conf, and hypercube.conf out of fdbQueryConfigs into this directory makes it possible to run the respective query using FDB. All the joins are Primary key/Foreign key joins, but some are many-to-many. 
+The folder "fdbQueryConfigs" contains four queries. Copying the dtree.txt and schema.conf out of fdbQueryConfigs into the directory also containing the data tables makes it possible to run the respective query using FDB. All the joins are Primary key/Foreign key joins, but some are many-to-many. 
 
 The Queries are as follows:
 
@@ -93,14 +91,16 @@ SELECT * FROM tbasics t1, tprincipals p, name n, knownfor k, tbasics t2
   WHERE t1.tID = p.tID and p.nID = n.nID and k.nID = n.nID and k.tID = t2.tID;
 ```
 
+### Query Statistics
+
 Of these queries, the first three were intended to achieve particularly high compression factors, by blowing the result up with lots of redundant information (hence the inclusion of title.akas). Queries 4 and 5 are more natural. Query 4 could be of interest if one wants to find a correlation between cast members and a films rating. Query 5 is something one might expect on an information page (though likely with an additional selection of specific titles in the first join).
 
-Statistics on the queries:
+Compression statistics for these queries:
 
 Query | #tuples in join | #values (singletons) | Compression Factor
 ------|-----------------|----------------------|-------------------
-[1](#Query 1) | 38161177  | 22372840  | 11.14
-[2](#Query 2) | 70584013  | 132069502 | 33.68
-[3](#Query 3) | 47664792  | 6978828   | 2.64
-[4](#Query 4) | 244895933 | 101099366 | 9.91
+[1](#Query-1) | 38161177  | 22372840  | 11.14
+[2](#Query-2) | 70584013  | 132069502 | 33.68
+[3](#Query-3) | 47664792  | 6978828   | 2.64
+[4](#Query-4) | 244895933 | 101099366 | 9.91
 
