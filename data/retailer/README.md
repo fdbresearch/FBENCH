@@ -32,4 +32,4 @@ demograpics NATURAL JOIN items;
 * Number of values in factorized join result: 3,614,400,131
 * Number of values in listing representation: 169,231,200
 * Compression Factor: 21.4
-* Degree (# of columns): 43
+* Arity: 43

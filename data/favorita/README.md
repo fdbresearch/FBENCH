@@ -46,7 +46,7 @@ stores NATURAL JOIN transactions NATURAL JOIN holiday;
 * Number of values in factorized join result: 376,680,850
 * Number of values in listing representation: 2,301,705,216
 * Compression Factor: 6.11
-* Degree (# of columns): 18
+* Arity: 18
 
 ### Natural Join of Train, Transaction, Item, Stores
 
@@ -60,4 +60,4 @@ SELECT * FROM train NATURAL JOIN item NATURAL JOIN stores NATURAL JOIN transacti
 * Number of values in factorized join result: 376672340
 * Number of values in listing representation: 1631461520
 * Compression Factor: 4.33
-* Degree (# of columns): 13
+* Arity: 13
