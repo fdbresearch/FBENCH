@@ -9,15 +9,15 @@ The dataset contains inventory data of a large retailer.
 
 ## Relations
 
-The relations have the following sizes (cardinality: number of tuples, arity: number of columns).
+The relations ([full Schema](schema.md)) have the following sizes (cardinality: number of tuples, arity: number of columns).
 
  Relation     | Cardinality | Arity             | Uncompressed File Size 
 --------------|-------------|-------------------|-----------------------
- Inventory    | 84,055,817  | 4 (3 FK, 1 non-key)  | 2 GB      
- Items        | 5,618       | 5 (1 PK, 4 non-key)  | 129 KB    
- Stores       | 1,317       | 15 (1 PK, 1 FK, 14 non-key)  | 139 KB    
- Demographics | 1,302       | 16 (1 PK, 15 non-key) | 161 KB    
- Weather      | 1,159,457   | 8 (2 PK, 6 non-key)  | 33 MB     
+ Inventory    | 84,055,817  | 4  | 2 GB      
+ Items        | 5,618       | 5  | 129 KB    
+ Stores       | 1,317       | 15 | 139 KB    
+ Demographics | 1,302       | 16 | 161 KB    
+ Weather      | 1,159,457   | 8  | 33 MB     
 
 ## Join Query: 
 
