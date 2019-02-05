@@ -15,18 +15,18 @@ The data as given is not normalised: many of the relations include "array"-field
 
 Relation | Cardinality | Arity | Uncompressed File Size
 ---------|-------------|-------|-----------------------
-title.basics | 4,973,640 | 8 | 186 MB
-title.basics_genres | 7,570,686 | 2 | 80 MB
-title.akas | 3,587,385 | 6 | 86 MB
-title.akas_types | 907,393 | 3 | 11 MB
-title.akas_attributes | 158,731 | 3 | 2 MB
-title.crew_directors | 3,567,579 | 2 | 52 MB
-title.crew_writers | 5,539,884 | 2 | 80 MB
-title.episode | 3,338,054 | 4 | 68 MB
-title.principals | 28,062,515 | 6 | 741 MB
-title.ratings | 828,661 | 3 | 12 MB
-name.basics | 8,582,320 | 4 | 186 MB
-name.basics_profession | 11,170,036 | 2 | 119 MB
+title.basics | 4,973,640 | 8 | 186 MB
+title.basics_genres | 7,570,686 | 2 | 80 MB
+title.akas | 3,587,385 | 6 | 86 MB
+title.akas_types | 907,393 | 3 | 11 MB
+title.akas_attributes | 158,731 | 3 | 2 MB
+title.crew_directors | 3,567,579 | 2 | 52 MB
+title.crew_writers | 5,539,884 | 2 | 80 MB
+title.episode | 3,338,054 | 4 | 68 MB
+title.principals | 28,062,515 | 6 | 741 MB
+title.ratings | 828,661 | 3 | 12 MB
+name.basics | 8,582,320 | 4 | 186 MB
+name.basics_profession | 11,170,036 | 2 | 119 MB
 name.basics_knownfor | 14,227,604 | 2 | 219 MB
 
 ### Data Types
