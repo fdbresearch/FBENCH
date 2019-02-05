@@ -9,49 +9,29 @@ Database with information about movies and people involved in their production. 
 * 4.9 million titles
 * 828k ratings
 
-## Relations
+### Relations
 
-The data as given is not normalised: many of the relations include "array"-fields that contain more than one datum. Further, most fields in the data are strings, which is not a datatype supported by DFDB. The script "prepare.py" converts the original data into a database containing only fields of type int (or double in one case) and normalises the array-fields. This results in the following relations:
+The data as given is not normalised: many of the relations include "array"-fields that contain more than one datum. Further, most fields in the data are strings, which is not a datatype supported by DFDB. The script "prepare.py" converts the original data into a database containing only fields of type int (or double in one case) and normalises the array-fields. This results in the following relations (see also the [full schema](schema.md) for a summary and domain sizes):
 
-* title.akas(titleID, ordering, title, region, language, isOriginalTitle)
-  * title.akas_types(titleID, ordering, type)
-  * title.akas_attributes(titleID, ordering, attribute)
-
-  The pair (titleID, ordering) is a primary key in "title.akas".
-  The two relations "types" and "attributes" are derived from array-fields in the original data and do not have non-key attributes.
-  These relations contain the "also known as" information for titles in the database, including the appropriate region and language. Since every title can have more than one such entry, titleID alone is not sufficient as a key, hence the "ordering" attribute is added.
-* title.basics(titleID, titleType, primaryTitle, originalTitle, isAdult, startYear, endYear, runtimeMinutes)
-  * title.basics_genres(titleID, genre)
-
-  TitleID is a primary key in "title.basics". 
-  The relation "genres" is derived from an array-field in the original data and does not have non-key attributes.
-  Basic information for the titles in the database.
-* title.crew_directors(titleID, nameID)
-* title.crew_writers(titleID, nameID)
-  
-  Both, "title.crew_directors" and "title.crew_writers" are derived from the original relation "title.crew", which only has the primary key "titleID" and two array-attributes "directors" and "writers". Hence, both these relations here have no non-key attributes.
-* title.episode(episodeID, titleID, seasonNumber, episodeNumber)
-  
-  EpisodeID is the primary key. TitleID is a foreign key from title.basics. Both are from the same domain, however.
-  The relation is for episodes of a TV show. Thus episodeID is the titleID of the specific episode and titleID is the ID of the title for the entire show.
-* title.principals(titleID, ordering, nameID, category, job, characters)
-  
-  The pair (titleID,ordering) is the primary key. NameID is a foreign key relating to name.basics.
-  Principal cast members of a title.
-* title.ratings(titleID, averageRating, numVotes)
-  
-  The primary key is titleID.
-  This relation has ratings for a number of titles.
-* name.basics(nameID, primaryName, birthYear, deathYear)
-  * name.basics_profession(nameID, profession)
-  * name.basics_knownFor(nameID, titleID)
-  
-  The primary key of "name.basics" is nameID. Both "name.basics_profession" and "name.basics_knownFor" are derived from array-fields in the original data and do not have non-key attributes.
-  This relation includes basic information about people (actors, directors, writers, producers, etc.) in the database.
+Relation | Cardinality | Arity | Uncompressed File Size
+---------|-------------|-------|-----------------------
+title.basics | 4,973,640 | 8 | 186 MB
+title.basics_genres | 7,570,686 | 2 | 80 MB
+title.akas | 3,587,385 | 6 | 86 MB
+title.akas_types | 907,393 | 3 | 11 MB
+title.akas_attributes | 158,731 | 3 | 2 MB
+title.crew_directors | 3,567,579 | 2 | 52 MB
+title.crew_writers | 5,539,884 | 2 | 80 MB
+title.episode | 3,338,054 | 4 | 68 MB
+title.principals | 28,062,515 | 6 | 741 MB
+title.ratings | 828,661 | 3 | 12 MB
+name.basics | 8,582,320 | 4 | 186 MB
+name.basics_profession | 11,170,036 | 2 | 119 MB
+name.basics_knownfor | 14,227,604 | 2 | 219 MB
 
 ### Data Types
 
-With the exception of "averageRating" (which is a double) every attribute after running "prepare.py" is of type int. Identical values that appear in different tables (but are within the same domain, i.e., titleID or nameID) are always mapped to the same integer. The conversion used for categorical attributes (which are: region, language, type, attribute, titleType, genre, category, job, and profession) is thus a simple bijection mapping a categorical value to a number. Booleans (isOriginalTitle, isAdult) are mapped to 0 and 1. Values that were already numbers (e.g. the years and runtimeMinutes) remain unchanged.
+With the exception of "averageRating" (which is a double) every attribute after running "prepare.py" is of type int. Identical values that appear in different tables (but are within the same domain, i.e., titleID or nameID) are always mapped to the same integer. The conversion used for categorical attributes is thus a simple bijection mapping a categorical value to a number. Booleans are mapped to 0 and 1. Values that were already numbers (e.g. the years and runtimeMinutes) remain unchanged.
 
 The raw data includes a numerous amount of NULL-entries, which are converted to "-1". Exception: If an array-field is NULL in the original data, the derived table for this array (title.akas_types, title.akas_attributes, etc.) does not have a matching entry.
 
