@@ -7,7 +7,7 @@ The dataset contains inventory data of a large retailer.
 * Star Schema: 1 main relation which the other ones are joined into using PK/FK joins.
 * 84 Million tuples in main relation
 
-## Relations
+### Relations
 
 The relations ([full schema](schema.md)) have the following sizes (cardinality: number of tuples, arity: number of columns).
 

@@ -4,30 +4,30 @@ Dataset of a large retailer, derived from a data available at the [kaggle compet
 
 ## Data Overview
 
-* 6 Relations: Item, Stores, Transactions, Oil, Sales, Holiday
-* 4100 Items
-* 54 Stores
-* 83488 Transactions
-* Oil prize for 1218 days
-* 125,497,040 tuples in Sales
-* 350 Holidays/Events 
+* 6 Relations
+* 125 million tuples in main relation (Sales)
 
-## Relations
+### Relations
 
-The schemas of the relations are as follows.
+The relations ([full schema](schema.md)) have the following sizes (cardinality: number of tuples, arity: number of columns).
 
-* Item (item int, family string, class_id int, perishable int);
-* Oil (date date, oil_prize float);
-* Stores (store int, city string, state string, store_type string, cluster int);
-* Sales (date date, store int, item int, unit_sales float, onpromotion string);
-* Transactions (date date, store int, transactions int);
-* Holiday(date date, holiday_type string,locale string,locale_name string, description string, transferred string);
+Relation    | Cardinality | Arity           | Uncompressed File Size
+------------|-------------|-----------------|-----------------------
+Item        | 4,100       | 4               | 68 kB
+Oil         | 1,218       | 2               | 18 kB
+Stores      | 54          | 5               | 676 B
+Sales       | 125,497,040 | 5               | 2.5 GB
+Transactions| 83,488      | 3               | 977 kB
+Holiday     | 350         | 5               | 21 kB
 
-## Changes made to the Dataset
+### Changes made to the Dataset
+
+We made some changes to the dataset linked at the top.
+
 * Added missing values to Oil relation for all dates that are not present. When a date does not have an oilprice, it was set to the same price as the previous date. Otherwise these two relations significantly reduce the size of the join.
 * Added default values in Holidays for dates that are not holidays.
 * Turned Strings into integers, and added a dictionary mapping for each new ID.
-* Removed ID Attribute from Train-Relation since it is just a row number.
+* Renamed "Train"-relation into "Sales" and removed the ID Attribute from it since it is just a row number.
 
 ## Join Queries
 

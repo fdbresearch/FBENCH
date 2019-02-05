@@ -1,6 +1,6 @@
 # Relational Schema: Retailer
 
-We give the schemas of the 5 tables including some additional information on the domain sizes, primary keys, and whether an attribute is categorical.
+We give the schemas of the 5 relations, including some additional information on the domain sizes, primary keys, and whether an attribute is categorical.
 
 ## Inventory
 
