@@ -4,12 +4,12 @@ Dataset of a large retailer, derived from a data available at the [kaggle compet
 
 ## Data Overview
 
-* 6 Relations: Item, Stores, Transactions, Oil, Train (i.e. Training Dataset), Holiday
+* 6 Relations: Item, Stores, Transactions, Oil, Sales, Holiday
 * 4100 Items
 * 54 Stores
 * 83488 Transactions
 * Oil prize for 1218 days
-* 125,497,040 tuples in Train(ing dataset)
+* 125,497,040 tuples in Sales
 * 350 Holidays/Events 
 
 ## Relations
@@ -19,7 +19,7 @@ The schemas of the relations are as follows.
 * Item (item int, family string, class_id int, perishable int);
 * Oil (date date, oil_prize float);
 * Stores (store int, city string, state string, store_type string, cluster int);
-* Train (id int, date date, store int, item int, unit_sales float, onpromotion string);
+* Sales (date date, store int, item int, unit_sales float, onpromotion string);
 * Transactions (date date, store int, transactions int);
 * Holiday(date date, holiday_type string,locale string,locale_name string, description string, transferred string);
 

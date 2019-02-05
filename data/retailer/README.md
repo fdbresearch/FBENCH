@@ -9,7 +9,7 @@ The dataset contains inventory data of a large retailer.
 
 ## Relations
 
-The relations ([full Schema](schema.md)) have the following sizes (cardinality: number of tuples, arity: number of columns).
+The relations ([full schema](schema.md)) have the following sizes (cardinality: number of tuples, arity: number of columns).
 
  Relation     | Cardinality | Arity             | Uncompressed File Size 
 --------------|-------------|-------------------|-----------------------
