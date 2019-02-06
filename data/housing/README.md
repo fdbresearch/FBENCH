@@ -11,26 +11,26 @@ This dataset is generated to provide a scalable example exhibiting very high com
 
 ## Data Generation
 
-The data is generated along the following parameters:
+The following two sections describe how the data is generated using a scale factor `s`. The tables included in the repository were generated with scale factor `s = 20`.
 
 ### Number of tuples in the Relations
 
-Regardless of the scaling factor ´s´ we always have
+Regardless of the scaling factor `s` we always have
 * 25000 postcodes
 * 1 Transport-Tuple per postcode
 * 1 Demographics-Tuple per postcode
 
 Given a scaling factor `s` the following amount of tuples is generated:
 * House: `s` per postcode
-* Education: `4 log_2(s+1)` per postcode
-* Hospital: `2 log_2(s+1)` per postcode
+* Education: `4*log_2(s+1)` per postcode
+* Hospital: `2*log_2(s+1)` per postcode
 * Shop: `s` per postcode
 * Restaurant: `(s+1)/2` per postcode
-* Entertainment: `2 log_2(s+1)` per postcode
+* Entertainment: `2*log_2(s+1)` per postcode
 
 ### Data ranges/Domains
 
-The data is generated from the following data ranges:
+The data is generated uniformly at random from the following data ranges:
 
 House
 * postcode - `[1,25000]`
