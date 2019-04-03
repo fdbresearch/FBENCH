@@ -29,7 +29,7 @@ demograpics NATURAL JOIN items;
 ```
 
 * Number of Tuples in join result: 84,055.817
-* Number of values in factorized join result: 3,614,400,131
-* Number of values in listing representation: 169,231,200
+* Number of values in factorized join result: 169,231,200
+* Number of values in listing representation: 3,614,400,131 
 * Compression Factor: 21.4
 * Arity: 43

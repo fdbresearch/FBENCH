@@ -38,7 +38,7 @@ We evaluated two natural joins, one over all relations and one over a selection:
 This is the following Query in SQL:
 
 ```SQL
-SELECT * FROM train NATURAL JOIN item NATURAL JOIN oil NATURAL JOIN
+SELECT * FROM Sales NATURAL JOIN item NATURAL JOIN oil NATURAL JOIN
 stores NATURAL JOIN transactions NATURAL JOIN holiday;
 ```
 
@@ -48,16 +48,16 @@ stores NATURAL JOIN transactions NATURAL JOIN holiday;
 * Compression Factor: 6.11
 * Arity: 18
 
-### Natural Join of Train, Transaction, Item, Stores
+### Natural Join of Sales, Transaction, Item, Stores
 
 This is the following Query in SQL:
 
 ```SQL
-SELECT * FROM train NATURAL JOIN item NATURAL JOIN stores NATURAL JOIN transactions;
+SELECT * FROM Sales NATURAL JOIN item NATURAL JOIN stores NATURAL JOIN transactions;
 ```
 
-* Number of Tuples in join result: 125497040
-* Number of values in factorized join result: 376672340
-* Number of values in listing representation: 1631461520
+* Number of Tuples in join result: 125,497,040
+* Number of values in factorized join result: 376,672,340
+* Number of values in listing representation: 1,631,461,520
 * Compression Factor: 4.33
 * Arity: 13
