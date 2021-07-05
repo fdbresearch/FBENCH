@@ -55,7 +55,7 @@ The simplest way to run FBench is to type the following command:
 
 Other command line options are available. Run the following command to view them:
 ```
-./dfdb --help
+./fbench --help
 ```
 
 In particular there are two options for the model: the default model "count" only counts the sizes of the join result and yields a compression factor, but without explicitly constructing the result. The alternative "countJoin" constructs the join explicitly and then prints the sizes to the standard output.
